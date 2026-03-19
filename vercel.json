@@ -2,7 +2,15 @@
   "version": 2,
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/vpn",
+      "dest": "/api/vpn"
+    },
+    {
+      "src": "/",
+      "dest": "/api/index"
+    },
+    {
+      "src": "/api/?$",
       "dest": "/api/index"
     }
   ]
