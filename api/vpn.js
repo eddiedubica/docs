@@ -289,6 +289,65 @@ body {
   margin: 32px 0;
 }
 
+/* Config block */
+.config-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: border-color 0.2s;
+}
+.config-toggle:hover { border-color: rgba(175,230,127,0.2); }
+.config-toggle span { font-size: 14px; color: rgba(255,255,255,0.6); }
+.config-toggle .arrow { color: #afe67f; font-size: 12px; transition: transform 0.2s; }
+.config-toggle.open .arrow { transform: rotate(90deg); }
+.config-body {
+  display: none;
+  margin-top: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+.config-body.open { display: block; }
+.config-body pre {
+  margin: 0;
+  padding: 16px;
+  background: rgba(0,0,0,0.4);
+  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  line-height: 1.5;
+  font-family: 'SF Mono', Menlo, monospace;
+  overflow-x: auto;
+  max-height: 300px;
+  overflow-y: auto;
+  white-space: pre;
+}
+.config-actions {
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.config-actions button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(175,230,127,0.2);
+  background: rgba(175,230,127,0.1);
+  color: #afe67f;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+.config-actions button:hover { background: rgba(175,230,127,0.2); }
+
 @media (max-width: 600px) {
   .container { padding: 20px 0 60px; }
   .header h1 { font-size: 26px; }
@@ -508,18 +567,184 @@ body {
 
       <div class="step">
         <div class="step-number">2</div>
-        <h3>Добавь конфигурацию по ссылке</h3>
-        <p>Нажми <span class="highlight">«Добавить конфигурацию из URL»</span> и вставь эту ссылку:</p>
-        <div style="margin-top:12px;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 16px">
-          <code id="conf-url" style="flex:1;font-size:13px;color:#afe67f;word-break:break-all;font-family:monospace">https://docs.dubica.ru/shadowrocket.conf</code>
-          <button onclick="copyConf()" id="copy-conf-btn" style="background:rgba(175,230,127,0.1);border:1px solid rgba(175,230,127,0.2);border-radius:8px;padding:8px 14px;color:#afe67f;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:inherit">Скопировать</button>
+        <h3>Скопируй конфигурацию</h3>
+        <p>Нажми <span class="highlight">«Показать конфиг»</span>, затем <span class="highlight">«Скопировать»</span>:</p>
+
+        <div class="config-toggle" onclick="toggleConfig()">
+          <span>Конфигурация Shadowrocket</span>
+          <span class="arrow">▶</span>
+        </div>
+        <div class="config-body" id="config-body">
+          <pre id="config-text"># Shadowrocket Config for Russia
+
+[General]
+bypass-system = true
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, captive.apple.com
+tun-excluded-routes = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32, 239.255.255.250/32
+dns-server = 1.1.1.1, 8.8.8.8
+fallback-dns-server = 8.8.4.4, 1.0.0.1
+ipv6 = false
+prefer-ipv6 = false
+dns-direct-system = false
+icmp-auto-reply = true
+always-reject-url-rewrite = false
+private-ip-answer = true
+dns-direct-fallback-proxy = false
+udp-policy-not-supported-behaviour = REJECT
+use-local-host-item-for-proxy = false
+
+[Rule]
+# Discord
+DOMAIN-SUFFIX,discord.com,PROXY
+DOMAIN-SUFFIX,discordapp.com,PROXY
+DOMAIN-SUFFIX,discordapp.net,PROXY
+DOMAIN-SUFFIX,discord.gg,PROXY
+DOMAIN-SUFFIX,discord.media,PROXY
+DOMAIN-SUFFIX,discordcdn.com,PROXY
+DOMAIN-KEYWORD,discord,PROXY
+
+# Instagram / Facebook / Meta
+DOMAIN-SUFFIX,instagram.com,PROXY
+DOMAIN-SUFFIX,cdninstagram.com,PROXY
+DOMAIN-KEYWORD,instagram,PROXY
+DOMAIN-KEYWORD,facebook,PROXY
+DOMAIN-SUFFIX,fb.com,PROXY
+DOMAIN-SUFFIX,fbcdn.net,PROXY
+DOMAIN-SUFFIX,facebook.net,PROXY
+DOMAIN-SUFFIX,meta.com,PROXY
+DOMAIN-SUFFIX,threads.net,PROXY
+
+# Twitter / X
+DOMAIN-KEYWORD,twitter,PROXY
+DOMAIN-SUFFIX,twitter.com,PROXY
+DOMAIN-SUFFIX,twimg.com,PROXY
+DOMAIN-SUFFIX,x.com,PROXY
+DOMAIN-SUFFIX,t.co,PROXY
+
+# YouTube / Google
+DOMAIN-KEYWORD,youtube,PROXY
+DOMAIN-KEYWORD,google,PROXY
+DOMAIN-SUFFIX,youtu.be,PROXY
+DOMAIN-SUFFIX,ytimg.com,PROXY
+DOMAIN-SUFFIX,goog,PROXY
+DOMAIN-SUFFIX,gmail.com,PROXY
+DOMAIN-SUFFIX,gstatic.com,PROXY
+DOMAIN-SUFFIX,googleapis.com,PROXY
+DOMAIN-SUFFIX,firebaseio.com,PROXY
+DOMAIN-SUFFIX,android.com,PROXY
+DOMAIN-SUFFIX,chrome.com,PROXY
+DOMAIN-SUFFIX,ampproject.org,PROXY
+
+# Telegram
+DOMAIN-SUFFIX,t.me,PROXY
+DOMAIN-SUFFIX,telegram.me,PROXY
+DOMAIN-SUFFIX,telegram.org,PROXY
+DOMAIN-SUFFIX,telegra.ph,PROXY
+IP-CIDR,91.108.4.0/22,PROXY,no-resolve
+IP-CIDR,91.108.8.0/22,PROXY,no-resolve
+IP-CIDR,91.108.12.0/22,PROXY,no-resolve
+IP-CIDR,91.108.16.0/22,PROXY,no-resolve
+IP-CIDR,91.108.20.0/22,PROXY,no-resolve
+IP-CIDR,91.108.56.0/22,PROXY,no-resolve
+IP-CIDR,149.154.160.0/20,PROXY,no-resolve
+
+# AI — ChatGPT / Claude / Gemini
+DOMAIN-SUFFIX,openai.com,PROXY
+DOMAIN-SUFFIX,oaistatic.com,PROXY
+DOMAIN-SUFFIX,oaiusercontent.com,PROXY
+DOMAIN-SUFFIX,anthropic.com,PROXY
+DOMAIN-SUFFIX,claude.ai,PROXY
+DOMAIN-SUFFIX,perplexity.ai,PROXY
+DOMAIN,copilot.microsoft.com,PROXY
+
+# Spotify / TikTok / Netflix / Twitch
+DOMAIN-SUFFIX,spotify.com,PROXY
+DOMAIN-SUFFIX,scdn.co,PROXY
+DOMAIN-KEYWORD,spotify,PROXY
+DOMAIN-SUFFIX,tiktok.com,PROXY
+DOMAIN-KEYWORD,tiktok,PROXY
+DOMAIN-SUFFIX,nflxvideo.net,PROXY
+DOMAIN-SUFFIX,twitch.tv,PROXY
+DOMAIN-SUFFIX,soundcloud.com,PROXY
+
+# Мессенджеры
+DOMAIN-SUFFIX,whatsapp.net,PROXY
+DOMAIN-SUFFIX,whatsapp.com,PROXY
+DOMAIN-SUFFIX,signal.org,PROXY
+DOMAIN-SUFFIX,snapchat.com,PROXY
+DOMAIN-SUFFIX,zoom.us,PROXY
+
+# Reddit / Notion / GitHub / LinkedIn
+DOMAIN-SUFFIX,reddit.com,PROXY
+DOMAIN-SUFFIX,redd.it,PROXY
+DOMAIN-SUFFIX,notion.so,PROXY
+DOMAIN-SUFFIX,notion.com,PROXY
+DOMAIN-SUFFIX,github.com,PROXY
+DOMAIN-SUFFIX,githubusercontent.com,PROXY
+DOMAIN-SUFFIX,linkedin.com,PROXY
+DOMAIN-SUFFIX,medium.com,PROXY
+DOMAIN-SUFFIX,stackoverflow.com,PROXY
+DOMAIN-SUFFIX,wikipedia.org,PROXY
+
+# Steam / Blizzard
+DOMAIN-SUFFIX,steampowered.com,PROXY
+DOMAIN-SUFFIX,steamcommunity.com,PROXY
+DOMAIN-SUFFIX,steamstatic.com,PROXY
+DOMAIN-SUFFIX,battle.net,PROXY
+DOMAIN-SUFFIX,blizzard.com,PROXY
+
+# Облака / CDN
+DOMAIN-SUFFIX,cloudfront.net,PROXY
+DOMAIN-SUFFIX,cloudflare.com,PROXY
+DOMAIN-SUFFIX,amazonaws.com,PROXY
+DOMAIN-SUFFIX,amazon.com,PROXY
+DOMAIN-SUFFIX,dropbox.com,PROXY
+DOMAIN-SUFFIX,docker.com,PROXY
+DOMAIN-SUFFIX,imgur.com,PROXY
+DOMAIN-SUFFIX,wordpress.com,PROXY
+
+# Apple Intelligence
+DOMAIN-SUFFIX,apple-relay.apple.com,PROXY
+DOMAIN-SUFFIX,apple-relay.cloudflare.com,PROXY
+
+# Российские сервисы — напрямую
+DOMAIN-SUFFIX,ru,DIRECT
+DOMAIN-SUFFIX,yandex.com,DIRECT
+DOMAIN-SUFFIX,yandex.net,DIRECT
+DOMAIN-SUFFIX,vk.com,DIRECT
+DOMAIN-SUFFIX,vk.me,DIRECT
+DOMAIN-SUFFIX,tinkoff.com,DIRECT
+DOMAIN-SUFFIX,sberbank.com,DIRECT
+DOMAIN-SUFFIX,apple.com,DIRECT
+DOMAIN-SUFFIX,icloud.com,DIRECT
+DOMAIN-SUFFIX,mzstatic.com,DIRECT
+DOMAIN-SUFFIX,windows.com,DIRECT
+
+# LAN
+IP-CIDR,192.168.0.0/16,DIRECT
+IP-CIDR,10.0.0.0/8,DIRECT
+IP-CIDR,172.16.0.0/12,DIRECT
+IP-CIDR,127.0.0.0/8,DIRECT
+
+GEOIP,RU,DIRECT
+FINAL,PROXY
+
+[Host]
+localhost = 127.0.0.1
+
+[URL Rewrite]
+^https?://(www.)?g.cn($|/.*) https://www.google.com$2 302
+^https?://(www.)?google.cn($|/.*) https://www.google.com$2 302</pre>
+          <div class="config-actions">
+            <button onclick="copyConfig()">Скопировать конфиг</button>
+          </div>
         </div>
       </div>
 
       <div class="step">
         <div class="step-number">3</div>
-        <h3>Активируй</h3>
-        <p>Нажми на загруженную конфигурацию → <span class="highlight">«Использовать»</span>. На главном экране выбери режим <span class="highlight">«Конфигурация»</span>.</p>
+        <h3>Вставь и активируй</h3>
+        <p>В Shadowrocket: <span class="highlight">Конфигурация</span> → нажми на текущий файл → <span class="highlight">Редактировать простой текст</span> → вставь скопированный конфиг → <span class="highlight">Сохранить</span>.</p>
         <div class="video-block">
           <img src="/videos/sr-config.gif" alt="Настройка конфига в Shadowrocket">
         </div>
@@ -563,12 +788,18 @@ body {
 </div>
 
 <script>
-function copyConf() {
-  var url = document.getElementById('conf-url').textContent;
-  navigator.clipboard.writeText(url).then(function() {
-    var btn = document.getElementById('copy-conf-btn');
-    btn.textContent = 'Скопировано!';
-    setTimeout(function() { btn.textContent = 'Скопировать'; }, 2000);
+function toggleConfig() {
+  var toggle = document.querySelector('.config-toggle');
+  var body = document.getElementById('config-body');
+  toggle.classList.toggle('open');
+  body.classList.toggle('open');
+}
+function copyConfig() {
+  var text = document.getElementById('config-text').textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    var btns = document.querySelectorAll('.config-actions button');
+    btns[0].textContent = 'Скопировано!';
+    setTimeout(function() { btns[0].textContent = 'Скопировать конфиг'; }, 2000);
   });
 }
 function switchTab(id) {
