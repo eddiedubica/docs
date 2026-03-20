@@ -1,9 +1,5 @@
 const LOGO = "https://optim.tildacdn.com/tild6234-6433-4330-a439-643032666335/-/resize/162x/-/format/webp/Frame_2.png.webp";
 
-const VLESS_LINK = "vless://7550f067-20aa-4b85-999d-86a77d2d5dc3@80.208.228.186:47823?type=grpc&security=reality&pbk=k0NrwmnRXntD4rnEHiDSgdzmjeA_UUsJl8L8eq0m6Q4&sni=www.microsoft.com&sid=c2fb84f33550f8f3&serviceName=vl&mode=multi#VPN-Lithuania";
-const SUB_URL = "http://80.208.228.186:48888/sub/d9dad923833cb70985d221a387e19652";
-const SHADOWROCKET_CONF_URL = "https://raw.githubusercontent.com/eddiedubica/vpn-configs/main/shadowrocket.conf";
-
 const HTML = `<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -164,40 +160,19 @@ body {
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 10px;
   padding: 14px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
 }
 .config-block code {
   font-family: 'SF Mono', 'Fira Code', monospace;
   font-size: 12px;
   color: rgba(175,230,127,0.7);
   word-break: break-all;
-  flex: 1;
   line-height: 1.5;
 }
-.copy-btn {
-  padding: 8px 16px;
-  background: rgba(175,230,127,0.1);
-  border: 1px solid rgba(175,230,127,0.2);
-  border-radius: 8px;
-  color: #afe67f;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.copy-btn:hover {
-  background: rgba(175,230,127,0.15);
-  border-color: rgba(175,230,127,0.3);
-}
-.copy-btn.copied {
-  background: rgba(175,230,127,0.2);
-  color: #fff;
+
+/* Placeholder style */
+.placeholder-val {
+  color: rgba(255,180,50,0.8);
+  font-style: italic;
 }
 
 /* Settings table */
@@ -322,33 +297,12 @@ body {
   margin: 32px 0;
 }
 
-/* App store badge */
-.store-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 10px;
-  color: rgba(255,255,255,0.7);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-.store-link:hover {
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-}
-
 @media (max-width: 600px) {
   .container { padding: 20px 0 60px; }
   .header h1 { font-size: 26px; }
   .step { padding: 16px 16px 16px 52px; }
   .step-number { left: 12px; top: 16px; width: 28px; height: 28px; font-size: 13px; }
   .config-block { flex-direction: column; align-items: stretch; }
-  .copy-btn { text-align: center; }
   .settings td:first-child { width: 110px; }
   .tabs { flex-direction: column; }
 }
@@ -361,6 +315,12 @@ body {
     <img src="${LOGO}" alt="dubica">
     <h1>VPN — Подключение</h1>
     <p>Инструкция для V2RayTun и Shadowrocket</p>
+  </div>
+
+  <!-- Prerequisite -->
+  <div class="info-box" style="margin-bottom:40px">
+    <div class="label">Перед началом</div>
+    <p>Тебе нужна <strong style="color:#afe67f">VLESS-ссылка</strong> для подключения. Она начинается с <code style="color:#afe67f;font-family:monospace;font-size:13px">vless://...</code> — её тебе пришлют отдельно. Также могут прислать <strong style="color:#afe67f">ссылку подписки</strong> (subscription URL) для автообновления.</p>
   </div>
 
   <!-- Tabs -->
@@ -402,15 +362,14 @@ body {
     </div>
 
     <div class="section">
-      <div class="section-title">Способ 1 — По ссылке (быстро)</div>
+      <div class="section-title">Способ 1 — По ссылке (самый простой)</div>
 
       <div class="step">
         <div class="step-number">1</div>
-        <h3>Скопируй VLESS ссылку</h3>
-        <p>Нажми кнопку «Скопировать» — ссылка попадёт в буфер обмена</p>
+        <h3>Скопируй VLESS-ссылку</h3>
+        <p>Скопируй ссылку, которую тебе прислали. Она выглядит примерно так:</p>
         <div class="config-block">
-          <code id="vless-link-v2ray">${VLESS_LINK}</code>
-          <button class="copy-btn" onclick="copyText('vless-link-v2ray', this)">Скопировать</button>
+          <code><span class="placeholder-val">vless://abc123-def456@1.2.3.4:443?type=grpc&security=reality&...</span></code>
         </div>
       </div>
 
@@ -424,9 +383,16 @@ body {
       <div class="step">
         <div class="step-number">3</div>
         <h3>Подключись</h3>
-        <p>Выбери сервер <span class="highlight">VPN-Lithuania</span> в списке и нажми большую кнопку подключения. При первом запуске iOS попросит разрешить VPN — нажми <span class="highlight">«Разрешить»</span>.</p>
+        <p>Выбери появившийся сервер в списке и нажми большую кнопку подключения. При первом запуске iOS попросит разрешить VPN — нажми <span class="highlight">«Разрешить»</span>.</p>
+      </div>
+
+      <div class="info-box">
+        <div class="label">Готово!</div>
+        <p>Этого достаточно для работы. Способы 2 и 3 ниже — для продвинутых пользователей.</p>
       </div>
     </div>
+
+    <div class="divider"></div>
 
     <div class="section">
       <div class="section-title">Способ 2 — Через подписку (с автообновлением)</div>
@@ -438,18 +404,18 @@ body {
 
       <div class="step">
         <div class="step-number">1</div>
-        <h3>Скопируй ссылку подписки</h3>
-        <p>Нажми «Скопировать»</p>
+        <h3>Получи ссылку подписки</h3>
+        <p>Ссылка подписки (subscription URL) отличается от VLESS-ссылки. Она выглядит так:</p>
         <div class="config-block">
-          <code id="sub-url-v2ray">${SUB_URL}</code>
-          <button class="copy-btn" onclick="copyText('sub-url-v2ray', this)">Скопировать</button>
+          <code><span class="placeholder-val">http://1.2.3.4:48888/sub/...</span></code>
         </div>
+        <p class="sub">Если тебе не присылали ссылку подписки — используй Способ 1</p>
       </div>
 
       <div class="step">
         <div class="step-number">2</div>
         <h3>Добавь подписку в V2RayTun</h3>
-        <p>Нажми <span class="highlight">«+»</span> → <span class="highlight">«Подписка»</span> (или «Subscription»). Вставь ссылку и нажми <span class="highlight">«Сохранить»</span>.</p>
+        <p>Скопируй ссылку → открой V2RayTun → нажми <span class="highlight">«+»</span> → <span class="highlight">«Подписка»</span> (или «Subscription»). Вставь ссылку и нажми <span class="highlight">«Сохранить»</span>.</p>
       </div>
 
       <div class="step">
@@ -465,20 +431,20 @@ body {
       <div class="step">
         <div class="step-number">1</div>
         <h3>Добавь сервер вручную</h3>
-        <p>Нажми <span class="highlight">«+»</span> → <span class="highlight">«Добавить вручную»</span> (или «Manual config»). Заполни параметры:</p>
+        <p>Нажми <span class="highlight">«+»</span> → <span class="highlight">«Добавить вручную»</span> (или «Manual config»). Заполни параметры которые тебе прислали:</p>
         <table class="settings">
           <tr><td>Протокол</td><td>VLESS</td></tr>
-          <tr><td>Адрес</td><td>80.208.228.186</td></tr>
-          <tr><td>Порт</td><td>47823</td></tr>
-          <tr><td>UUID</td><td style="font-family:monospace;font-size:13px">7550f067-20aa-4b85-999d-86a77d2d5dc3</td></tr>
+          <tr><td>Адрес</td><td class="placeholder-val">IP-адрес сервера</td></tr>
+          <tr><td>Порт</td><td class="placeholder-val">порт сервера</td></tr>
+          <tr><td>UUID</td><td class="placeholder-val">ваш UUID</td></tr>
           <tr><td>Шифрование</td><td>none</td></tr>
           <tr><td>Транспорт</td><td>gRPC</td></tr>
-          <tr><td>Service Name</td><td>vl</td></tr>
+          <tr><td>Service Name</td><td class="placeholder-val">имя сервиса</td></tr>
           <tr><td>Mode</td><td>multi</td></tr>
           <tr><td>Безопасность</td><td>Reality</td></tr>
-          <tr><td>SNI</td><td>www.microsoft.com</td></tr>
-          <tr><td>Public Key</td><td style="font-family:monospace;font-size:12px">k0NrwmnRXntD4rnEHiDSgdzmjeA_UUsJl8L8eq0m6Q4</td></tr>
-          <tr><td>Short ID</td><td style="font-family:monospace">c2fb84f33550f8f3</td></tr>
+          <tr><td>SNI</td><td class="placeholder-val">домен SNI</td></tr>
+          <tr><td>Public Key</td><td class="placeholder-val">публичный ключ</td></tr>
+          <tr><td>Short ID</td><td class="placeholder-val">короткий ID</td></tr>
         </table>
       </div>
 
@@ -521,16 +487,12 @@ body {
     </div>
 
     <div class="section">
-      <div class="section-title">Способ 1 — По ссылке (быстро)</div>
+      <div class="section-title">Способ 1 — По ссылке (самый простой)</div>
 
       <div class="step">
         <div class="step-number">1</div>
-        <h3>Скопируй VLESS ссылку</h3>
-        <p>Нажми «Скопировать»</p>
-        <div class="config-block">
-          <code id="vless-link-sr">${VLESS_LINK}</code>
-          <button class="copy-btn" onclick="copyText('vless-link-sr', this)">Скопировать</button>
-        </div>
+        <h3>Скопируй VLESS-ссылку</h3>
+        <p>Скопируй ссылку, которую тебе прислали. Она начинается с <code style="color:#afe67f;font-family:monospace">vless://...</code></p>
       </div>
 
       <div class="step">
@@ -543,26 +505,30 @@ body {
       <div class="step">
         <div class="step-number">3</div>
         <h3>Подключись</h3>
-        <p>Нажми переключатель напротив сервера <span class="highlight">VPN-Lithuania</span>. При первом запуске разреши VPN.</p>
+        <p>Нажми переключатель напротив появившегося сервера. При первом запуске разреши VPN.</p>
+      </div>
+
+      <div class="info-box">
+        <div class="label">Готово!</div>
+        <p>Этого достаточно для работы. Дальше — дополнительные способы и настройка правил маршрутизации.</p>
       </div>
     </div>
+
+    <div class="divider"></div>
 
     <div class="section">
       <div class="section-title">Способ 2 — Через подписку</div>
 
       <div class="step">
         <div class="step-number">1</div>
-        <h3>Скопируй ссылку подписки</h3>
-        <div class="config-block">
-          <code id="sub-url-sr">${SUB_URL}</code>
-          <button class="copy-btn" onclick="copyText('sub-url-sr', this)">Скопировать</button>
-        </div>
+        <h3>Получи ссылку подписки</h3>
+        <p>Subscription URL — отдельная ссылка для автообновления. Если тебе её не присылали — используй Способ 1.</p>
       </div>
 
       <div class="step">
         <div class="step-number">2</div>
         <h3>Добавь подписку</h3>
-        <p>Открой Shadowrocket → нажми <span class="highlight">«+»</span> → тип <span class="highlight">«Subscribe»</span>. Вставь ссылку в поле URL и нажми <span class="highlight">«Готово»</span>.</p>
+        <p>Скопируй ссылку → открой Shadowrocket → нажми <span class="highlight">«+»</span> → тип <span class="highlight">«Subscribe»</span>. Вставь ссылку в поле URL и нажми <span class="highlight">«Готово»</span>.</p>
       </div>
 
       <div class="step">
@@ -578,19 +544,19 @@ body {
       <div class="step">
         <div class="step-number">1</div>
         <h3>Добавь сервер</h3>
-        <p>Нажми <span class="highlight">«+»</span> → тип <span class="highlight">«VLESS»</span>. Заполни:</p>
+        <p>Нажми <span class="highlight">«+»</span> → тип <span class="highlight">«VLESS»</span>. Заполни параметры которые тебе прислали:</p>
         <table class="settings">
-          <tr><td>Адрес</td><td>80.208.228.186</td></tr>
-          <tr><td>Порт</td><td>47823</td></tr>
-          <tr><td>UUID</td><td style="font-family:monospace;font-size:13px">7550f067-20aa-4b85-999d-86a77d2d5dc3</td></tr>
+          <tr><td>Адрес</td><td class="placeholder-val">IP-адрес сервера</td></tr>
+          <tr><td>Порт</td><td class="placeholder-val">порт сервера</td></tr>
+          <tr><td>UUID</td><td class="placeholder-val">ваш UUID</td></tr>
           <tr><td>Шифрование</td><td>none</td></tr>
           <tr><td>Транспорт</td><td>gRPC</td></tr>
-          <tr><td>Host</td><td>www.microsoft.com</td></tr>
-          <tr><td>Service Name</td><td>vl</td></tr>
+          <tr><td>Host</td><td class="placeholder-val">домен SNI</td></tr>
+          <tr><td>Service Name</td><td class="placeholder-val">имя сервиса</td></tr>
           <tr><td>TLS</td><td>reality</td></tr>
-          <tr><td>SNI</td><td>www.microsoft.com</td></tr>
-          <tr><td>Public Key</td><td style="font-family:monospace;font-size:12px">k0NrwmnRXntD4rnEHiDSgdzmjeA_UUsJl8L8eq0m6Q4</td></tr>
-          <tr><td>Short ID</td><td style="font-family:monospace">c2fb84f33550f8f3</td></tr>
+          <tr><td>SNI</td><td class="placeholder-val">домен SNI</td></tr>
+          <tr><td>Public Key</td><td class="placeholder-val">публичный ключ</td></tr>
+          <tr><td>Short ID</td><td class="placeholder-val">короткий ID</td></tr>
         </table>
       </div>
 
@@ -620,11 +586,8 @@ body {
       <div class="step">
         <div class="step-number">2</div>
         <h3>Добавь URL конфигурации</h3>
-        <p>Нажми <span class="highlight">«Добавить конфигурацию из URL»</span> и вставь ссылку:</p>
-        <div class="config-block">
-          <code id="sr-conf-url">${SHADOWROCKET_CONF_URL}</code>
-          <button class="copy-btn" onclick="copyText('sr-conf-url', this)">Скопировать</button>
-        </div>
+        <p>Нажми <span class="highlight">«Добавить конфигурацию из URL»</span> и вставь ссылку на файл правил, которую тебе прислали.</p>
+        <p class="sub">Это отдельная ссылка на файл .conf с правилами маршрутизации</p>
       </div>
 
       <div class="step">
@@ -702,34 +665,6 @@ function switchTab(id) {
   document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('active');
   event.currentTarget.classList.add('active');
-}
-
-function copyText(elId, btn) {
-  const text = document.getElementById(elId).textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = 'Скопировано!';
-    btn.classList.add('copied');
-    setTimeout(() => {
-      btn.textContent = 'Скопировать';
-      btn.classList.remove('copied');
-    }, 2000);
-  }).catch(() => {
-    // Fallback
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.left = '-999px';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    btn.textContent = 'Скопировано!';
-    btn.classList.add('copied');
-    setTimeout(() => {
-      btn.textContent = 'Скопировать';
-      btn.classList.remove('copied');
-    }, 2000);
-  });
 }
 </script>
 </body>
