@@ -322,10 +322,10 @@ body {
   <!-- Tabs -->
   <div class="tabs">
     <button class="tab active" onclick="switchTab('v2raytun')">
-      <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/83/64/e9/8364e9e0-e50c-1e02-699c-b4dba01c230d/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/60x60bb.jpg" style="width:24px;height:24px;border-radius:6px"> V2RayTun
+      <img src="/videos/v2raytun-icon.jpg" style="width:24px;height:24px;border-radius:6px"> V2RayTun
     </button>
     <button class="tab" onclick="switchTab('shadowrocket')">
-      <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/44/21/88/442188e9-742d-1e09-8cac-fc0cba1d02e1/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/60x60bb.jpg" style="width:24px;height:24px;border-radius:6px"> Shadowrocket
+      <img src="/videos/shadowrocket-icon.jpg" style="width:24px;height:24px;border-radius:6px"> Shadowrocket
     </button>
   </div>
 
