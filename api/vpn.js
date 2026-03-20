@@ -373,7 +373,7 @@ body {
         <p class="sub">Если не предложило — нажми «+» в правом верхнем углу → «Импорт из буфера обмена»</p>
         <!-- VIDEO: v2ray-import -->
         <div class="video-block" id="video-v2ray-import">
-          <video src="/videos/v2ray-import.mp4" playsinline muted loop autoplay preload="auto" poster="/videos/v2ray-import-poster.jpg"></video>
+          <video src="/videos/v2ray-import.mp4" playsinline muted loop autoplay preload="auto"></video>
         </div>
       </div>
     </div>
@@ -387,7 +387,7 @@ body {
         <p>Выбери появившийся сервер в списке и нажми большую кнопку подключения. При первом запуске iOS/Android попросит разрешить VPN — нажми <span class="highlight">«Разрешить»</span>.</p>
         <!-- VIDEO: v2ray-connect -->
         <div class="video-block" id="video-v2ray-connect">
-          <video src="/videos/v2ray-connect.mp4" playsinline muted loop autoplay preload="auto" poster="/videos/v2ray-connect-poster.jpg"></video>
+          <video src="/videos/v2ray-connect.mp4" playsinline muted loop autoplay preload="auto"></video>
         </div>
       </div>
 
@@ -448,7 +448,7 @@ body {
         <p class="sub">Если не предложило — нажми «+» в правом верхнем углу → тип «VLESS» → вставь ссылку в поле URI</p>
         <!-- VIDEO: sr-import -->
         <div class="video-block" id="video-sr-import">
-          <video src="/videos/sr-import.mp4" playsinline muted loop autoplay preload="auto" poster="/videos/sr-import-poster.jpg"></video>
+          <video src="/videos/sr-import.mp4" playsinline muted loop autoplay preload="auto"></video>
         </div>
       </div>
     </div>
@@ -462,7 +462,7 @@ body {
         <p>Нажми переключатель напротив появившегося сервера. При первом запуске разреши VPN.</p>
         <!-- VIDEO: sr-connect -->
         <div class="video-block" id="video-sr-connect">
-          <video src="/videos/sr-connect.mp4" playsinline muted loop autoplay preload="auto" poster="/videos/sr-connect-poster.jpg"></video>
+          <video src="/videos/sr-connect.mp4" playsinline muted loop autoplay preload="auto"></video>
         </div>
       </div>
 

@@ -2,11 +2,7 @@
   "version": 2,
   "outputDirectory": ".",
   "routes": [
-    {
-      "src": "/videos/(.*)",
-      "dest": "/public/videos/$1"
-    },
-    {
+{
       "src": "/vpn",
       "dest": "/api/vpn"
     },
