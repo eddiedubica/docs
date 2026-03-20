@@ -396,6 +396,24 @@ body {
       </div>
     </div>
 
+    <div class="section">
+      <div class="section-title">Шаг 5 — Настрой правила трафика</div>
+
+      <div class="info-box">
+        <div class="label">Зачем это нужно?</div>
+        <p>Без этой настройки российские сайты (Яндекс, банки, Госуслуги) могут работать медленно или не работать, потому что весь трафик идёт через VPN. Включи правила — и российские сайты пойдут напрямую.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <h3>Включи обход для РФ сайтов</h3>
+        <p>Открой <span class="highlight">Настройки</span> → <span class="highlight">Правила трафика</span> и включи нужную настройку, как показано на гифке:</p>
+        <div class="video-block">
+          <img src="/videos/v2ray-traffic.gif" alt="Настройка правил трафика в V2RayTun">
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ==================== Shadowrocket ==================== -->
