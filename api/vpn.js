@@ -153,49 +153,20 @@ body {
   font-weight: 500;
 }
 
-/* Config block */
-.config-block {
-  margin-top: 12px;
-  background: rgba(0,0,0,0.3);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 10px;
-  padding: 14px 16px;
+/* Video block */
+.video-block {
+  margin-top: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #000;
 }
-.config-block code {
-  font-family: 'SF Mono', 'Fira Code', monospace;
-  font-size: 12px;
-  color: rgba(175,230,127,0.7);
-  word-break: break-all;
-  line-height: 1.5;
-}
-
-/* Placeholder style */
-.placeholder-val {
-  color: rgba(255,180,50,0.8);
-  font-style: italic;
-}
-
-/* Settings table */
-.settings {
-  margin-top: 12px;
+.video-block video {
   width: 100%;
-  border-collapse: collapse;
-}
-.settings tr { border-bottom: 1px solid rgba(255,255,255,0.04); }
-.settings tr:last-child { border-bottom: none; }
-.settings td {
-  padding: 10px 0;
-  font-size: 14px;
-  vertical-align: top;
-}
-.settings td:first-child {
-  color: rgba(255,255,255,0.4);
-  width: 140px;
-  padding-right: 16px;
-}
-.settings td:last-child {
-  color: rgba(255,255,255,0.8);
-  font-weight: 500;
+  display: block;
+  max-height: 500px;
+  object-fit: contain;
+  background: #000;
 }
 
 /* Info box */
@@ -269,6 +240,29 @@ body {
 }
 .dl-btn svg { width: 18px; height: 18px; }
 
+/* Settings table */
+.settings {
+  margin-top: 12px;
+  width: 100%;
+  border-collapse: collapse;
+}
+.settings tr { border-bottom: 1px solid rgba(255,255,255,0.04); }
+.settings tr:last-child { border-bottom: none; }
+.settings td {
+  padding: 10px 0;
+  font-size: 14px;
+  vertical-align: top;
+}
+.settings td:first-child {
+  color: rgba(255,255,255,0.4);
+  width: 140px;
+  padding-right: 16px;
+}
+.settings td:last-child {
+  color: rgba(255,255,255,0.8);
+  font-weight: 500;
+}
+
 /* Footer */
 .footer {
   text-align: center;
@@ -285,12 +279,10 @@ body {
 }
 .footer a:hover { color: #afe67f; }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
 
-/* Divider */
 .divider {
   height: 1px;
   background: rgba(255,255,255,0.06);
@@ -302,7 +294,6 @@ body {
   .header h1 { font-size: 26px; }
   .step { padding: 16px 16px 16px 52px; }
   .step-number { left: 12px; top: 16px; width: 28px; height: 28px; font-size: 13px; }
-  .config-block { flex-direction: column; align-items: stretch; }
   .settings td:first-child { width: 110px; }
   .tabs { flex-direction: column; }
 }
@@ -320,7 +311,7 @@ body {
   <!-- Prerequisite -->
   <div class="info-box" style="margin-bottom:40px">
     <div class="label">Перед началом</div>
-    <p>Тебе нужна <strong style="color:#afe67f">VLESS-ссылка</strong> для подключения. Она начинается с <code style="color:#afe67f;font-family:monospace;font-size:13px">vless://...</code> — её тебе пришлют отдельно. Также могут прислать <strong style="color:#afe67f">ссылку подписки</strong> (subscription URL) для автообновления.</p>
+    <p>Тебе нужна <strong style="color:#afe67f">VLESS-ссылка</strong> для подключения. Она начинается с <code style="color:#afe67f;font-family:monospace;font-size:13px">vless://...</code> — её тебе пришлют отдельно.</p>
   </div>
 
   <!-- Tabs -->
@@ -342,12 +333,12 @@ body {
     </div>
 
     <div class="section">
-      <div class="section-title">Установка</div>
+      <div class="section-title">Шаг 1 — Скачай приложение</div>
 
       <div class="step">
         <div class="step-number">1</div>
-        <h3>Скачай V2RayTun</h3>
-        <p>Установи приложение из магазина</p>
+        <h3>Установи V2RayTun</h3>
+        <p>Бесплатное приложение. Скачай из магазина:</p>
         <div class="download-row">
           <a class="dl-btn" href="https://apps.apple.com/app/v2raytun/id6476628951" target="_blank">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -362,96 +353,46 @@ body {
     </div>
 
     <div class="section">
-      <div class="section-title">Способ 1 — По ссылке (самый простой)</div>
-
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Скопируй VLESS-ссылку</h3>
-        <p>Скопируй ссылку, которую тебе прислали. Она выглядит примерно так:</p>
-        <div class="config-block">
-          <code><span class="placeholder-val">vless://abc123-def456@1.2.3.4:443?type=grpc&security=reality&...</span></code>
-        </div>
-      </div>
+      <div class="section-title">Шаг 2 — Скопируй ссылку</div>
 
       <div class="step">
         <div class="step-number">2</div>
-        <h3>Открой V2RayTun</h3>
-        <p>Приложение <span class="highlight">автоматически предложит</span> добавить конфигурацию из буфера обмена. Нажми <span class="highlight">«Разрешить»</span> или <span class="highlight">«ОК»</span>.</p>
-        <p class="sub">Если не предложило — нажми «+» в правом верхнем углу → «Импорт из буфера обмена»</p>
+        <h3>Скопируй VLESS-ссылку</h3>
+        <p>Открой сообщение со ссылкой и <span class="highlight">скопируй её</span> (долгое нажатие → «Скопировать»). Ссылка начинается с <code style="color:#afe67f;font-family:monospace">vless://...</code></p>
       </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Шаг 3 — Добавь в приложение</div>
 
       <div class="step">
         <div class="step-number">3</div>
-        <h3>Подключись</h3>
-        <p>Выбери появившийся сервер в списке и нажми большую кнопку подключения. При первом запуске iOS попросит разрешить VPN — нажми <span class="highlight">«Разрешить»</span>.</p>
+        <h3>Открой V2RayTun</h3>
+        <p>Приложение <span class="highlight">автоматически предложит</span> добавить конфигурацию из буфера обмена. Нажми <span class="highlight">«Разрешить»</span> или <span class="highlight">«ОК»</span>.</p>
+        <p class="sub">Если не предложило — нажми «+» в правом верхнем углу → «Импорт из буфера обмена»</p>
+        <!-- VIDEO: v2ray-import -->
+        <div class="video-block" id="video-v2ray-import">
+          <video src="/videos/v2ray-import.mp4" playsinline muted loop controls preload="none" poster="/videos/v2ray-import-poster.jpg"></video>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Шаг 4 — Подключись</div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Включи VPN</h3>
+        <p>Выбери появившийся сервер в списке и нажми большую кнопку подключения. При первом запуске iOS/Android попросит разрешить VPN — нажми <span class="highlight">«Разрешить»</span>.</p>
+        <!-- VIDEO: v2ray-connect -->
+        <div class="video-block" id="video-v2ray-connect">
+          <video src="/videos/v2ray-connect.mp4" playsinline muted loop controls preload="none" poster="/videos/v2ray-connect-poster.jpg"></video>
+        </div>
       </div>
 
       <div class="info-box">
         <div class="label">Готово!</div>
-        <p>Этого достаточно для работы. Способы 2 и 3 ниже — для продвинутых пользователей.</p>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="section">
-      <div class="section-title">Способ 2 — Через подписку (с автообновлением)</div>
-
-      <div class="info-box">
-        <div class="label">Зачем подписка?</div>
-        <p>Если сервер обновится (новый IP, порт), подписка подтянет изменения автоматически. Не придётся заново вводить данные.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Получи ссылку подписки</h3>
-        <p>Ссылка подписки (subscription URL) отличается от VLESS-ссылки. Она выглядит так:</p>
-        <div class="config-block">
-          <code><span class="placeholder-val">http://1.2.3.4:48888/sub/...</span></code>
-        </div>
-        <p class="sub">Если тебе не присылали ссылку подписки — используй Способ 1</p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>Добавь подписку в V2RayTun</h3>
-        <p>Скопируй ссылку → открой V2RayTun → нажми <span class="highlight">«+»</span> → <span class="highlight">«Подписка»</span> (или «Subscription»). Вставь ссылку и нажми <span class="highlight">«Сохранить»</span>.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>Обнови и подключись</h3>
-        <p>Нажми <span class="highlight">«Обновить подписку»</span>. Появится сервер — выбери его и подключись.</p>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">Способ 3 — Вручную</div>
-
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Добавь сервер вручную</h3>
-        <p>Нажми <span class="highlight">«+»</span> → <span class="highlight">«Добавить вручную»</span> (или «Manual config»). Заполни параметры которые тебе прислали:</p>
-        <table class="settings">
-          <tr><td>Протокол</td><td>VLESS</td></tr>
-          <tr><td>Адрес</td><td class="placeholder-val">IP-адрес сервера</td></tr>
-          <tr><td>Порт</td><td class="placeholder-val">порт сервера</td></tr>
-          <tr><td>UUID</td><td class="placeholder-val">ваш UUID</td></tr>
-          <tr><td>Шифрование</td><td>none</td></tr>
-          <tr><td>Транспорт</td><td>gRPC</td></tr>
-          <tr><td>Service Name</td><td class="placeholder-val">имя сервиса</td></tr>
-          <tr><td>Mode</td><td>multi</td></tr>
-          <tr><td>Безопасность</td><td>Reality</td></tr>
-          <tr><td>SNI</td><td class="placeholder-val">домен SNI</td></tr>
-          <tr><td>Public Key</td><td class="placeholder-val">публичный ключ</td></tr>
-          <tr><td>Short ID</td><td class="placeholder-val">короткий ID</td></tr>
-        </table>
-      </div>
-
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>Сохрани и подключись</h3>
-        <p>Нажми <span class="highlight">«Сохранить»</span>, выбери сервер и подключись.</p>
+        <p>VPN подключён. YouTube, Instagram, Discord и другие заблокированные сайты теперь работают.</p>
       </div>
     </div>
 
@@ -467,16 +408,16 @@ body {
 
     <div class="warning-box">
       <div class="label">Важно</div>
-      <p>Shadowrocket — платное приложение ($2.99). Доступно только в App Store зарубежного Apple ID (в российском App Store его нет).</p>
+      <p>Shadowrocket — платное приложение ($2.99). Доступно только в App Store зарубежного Apple ID (в российском App Store его нет). Если нет зарубежного Apple ID — используй <span style="color:#afe67f;font-weight:500">V2RayTun</span> (бесплатный).</p>
     </div>
 
     <div class="section">
-      <div class="section-title">Установка</div>
+      <div class="section-title">Шаг 1 — Скачай приложение</div>
 
       <div class="step">
         <div class="step-number">1</div>
-        <h3>Скачай Shadowrocket</h3>
-        <p>Нужен зарубежный Apple ID. Переключи аккаунт в App Store и установи приложение.</p>
+        <h3>Установи Shadowrocket</h3>
+        <p>Переключи Apple ID на зарубежный аккаунт в App Store и установи:</p>
         <div class="download-row">
           <a class="dl-btn" href="https://apps.apple.com/app/shadowrocket/id932747118" target="_blank">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -487,133 +428,91 @@ body {
     </div>
 
     <div class="section">
-      <div class="section-title">Способ 1 — По ссылке (самый простой)</div>
-
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Скопируй VLESS-ссылку</h3>
-        <p>Скопируй ссылку, которую тебе прислали. Она начинается с <code style="color:#afe67f;font-family:monospace">vless://...</code></p>
-      </div>
+      <div class="section-title">Шаг 2 — Скопируй ссылку</div>
 
       <div class="step">
         <div class="step-number">2</div>
-        <h3>Открой Shadowrocket</h3>
-        <p>Приложение <span class="highlight">автоматически предложит</span> добавить конфигурацию. Нажми <span class="highlight">«Добавить»</span>.</p>
-        <p class="sub">Если не предложило — нажми «+» в правом верхнем углу → «Тип: VLESS» → вставь ссылку в поле URI</p>
+        <h3>Скопируй VLESS-ссылку</h3>
+        <p>Открой сообщение со ссылкой и <span class="highlight">скопируй её</span> (долгое нажатие → «Скопировать»). Ссылка начинается с <code style="color:#afe67f;font-family:monospace">vless://...</code></p>
       </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Шаг 3 — Добавь в приложение</div>
 
       <div class="step">
         <div class="step-number">3</div>
-        <h3>Подключись</h3>
+        <h3>Открой Shadowrocket</h3>
+        <p>Приложение <span class="highlight">автоматически предложит</span> добавить конфигурацию. Нажми <span class="highlight">«Добавить»</span>.</p>
+        <p class="sub">Если не предложило — нажми «+» в правом верхнем углу → тип «VLESS» → вставь ссылку в поле URI</p>
+        <!-- VIDEO: sr-import -->
+        <div class="video-block" id="video-sr-import">
+          <video src="/videos/sr-import.mp4" playsinline muted loop controls preload="none" poster="/videos/sr-import-poster.jpg"></video>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Шаг 4 — Подключись</div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Включи VPN</h3>
         <p>Нажми переключатель напротив появившегося сервера. При первом запуске разреши VPN.</p>
+        <!-- VIDEO: sr-connect -->
+        <div class="video-block" id="video-sr-connect">
+          <video src="/videos/sr-connect.mp4" playsinline muted loop controls preload="none" poster="/videos/sr-connect-poster.jpg"></video>
+        </div>
       </div>
 
       <div class="info-box">
         <div class="label">Готово!</div>
-        <p>Этого достаточно для работы. Дальше — дополнительные способы и настройка правил маршрутизации.</p>
+        <p>VPN подключён. YouTube, Instagram, Discord и другие заблокированные сайты теперь работают.</p>
       </div>
     </div>
 
     <div class="divider"></div>
 
     <div class="section">
-      <div class="section-title">Способ 2 — Через подписку</div>
-
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Получи ссылку подписки</h3>
-        <p>Subscription URL — отдельная ссылка для автообновления. Если тебе её не присылали — используй Способ 1.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>Добавь подписку</h3>
-        <p>Скопируй ссылку → открой Shadowrocket → нажми <span class="highlight">«+»</span> → тип <span class="highlight">«Subscribe»</span>. Вставь ссылку в поле URL и нажми <span class="highlight">«Готово»</span>.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>Обнови и подключись</h3>
-        <p>Потяни список серверов вниз для обновления подписки. Появится сервер — включи его.</p>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">Способ 3 — Вручную</div>
-
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Добавь сервер</h3>
-        <p>Нажми <span class="highlight">«+»</span> → тип <span class="highlight">«VLESS»</span>. Заполни параметры которые тебе прислали:</p>
-        <table class="settings">
-          <tr><td>Адрес</td><td class="placeholder-val">IP-адрес сервера</td></tr>
-          <tr><td>Порт</td><td class="placeholder-val">порт сервера</td></tr>
-          <tr><td>UUID</td><td class="placeholder-val">ваш UUID</td></tr>
-          <tr><td>Шифрование</td><td>none</td></tr>
-          <tr><td>Транспорт</td><td>gRPC</td></tr>
-          <tr><td>Host</td><td class="placeholder-val">домен SNI</td></tr>
-          <tr><td>Service Name</td><td class="placeholder-val">имя сервиса</td></tr>
-          <tr><td>TLS</td><td>reality</td></tr>
-          <tr><td>SNI</td><td class="placeholder-val">домен SNI</td></tr>
-          <tr><td>Public Key</td><td class="placeholder-val">публичный ключ</td></tr>
-          <tr><td>Short ID</td><td class="placeholder-val">короткий ID</td></tr>
-        </table>
-      </div>
-
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>Сохрани и подключись</h3>
-        <p>Нажми <span class="highlight">«Готово»</span> и включи переключатель.</p>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="section">
-      <div class="section-title">Настройка правил маршрутизации</div>
+      <div class="section-title">Настройка правил (по желанию)</div>
 
       <div class="info-box">
         <div class="label">Зачем правила?</div>
-        <p>Правила определяют какие сайты идут через VPN, а какие напрямую. Российские сервисы (Яндекс, банки, маркетплейсы) работают напрямую — без замедления. Заблокированные (YouTube, Instagram, Discord) идут через VPN.</p>
+        <p>Без правил весь трафик идёт через VPN. С правилами — российские сервисы (Яндекс, банки, маркетплейсы) работают напрямую и быстрее, а заблокированные сайты идут через VPN.</p>
       </div>
 
       <div class="step">
         <div class="step-number">1</div>
-        <h3>Перейди в настройки конфигурации</h3>
-        <p>Shadowrocket → вкладка <span class="highlight">«Конфигурация»</span> (внизу экрана)</p>
+        <h3>Открой «Конфигурация»</h3>
+        <p>Нажми вкладку <span class="highlight">«Конфигурация»</span> внизу экрана</p>
       </div>
 
       <div class="step">
         <div class="step-number">2</div>
-        <h3>Добавь URL конфигурации</h3>
-        <p>Нажми <span class="highlight">«Добавить конфигурацию из URL»</span> и вставь ссылку на файл правил, которую тебе прислали.</p>
-        <p class="sub">Это отдельная ссылка на файл .conf с правилами маршрутизации</p>
+        <h3>Добавь конфигурацию по ссылке</h3>
+        <p>Нажми <span class="highlight">«Добавить конфигурацию из URL»</span> и вставь ссылку на файл правил (её тебе пришлют вместе с VLESS-ссылкой).</p>
       </div>
 
       <div class="step">
         <div class="step-number">3</div>
-        <h3>Активируй конфигурацию</h3>
-        <p>Нажми на загруженную конфигурацию и выбери <span class="highlight">«Использовать»</span>. Теперь правила маршрутизации активны.</p>
+        <h3>Активируй</h3>
+        <p>Нажми на загруженную конфигурацию → <span class="highlight">«Использовать»</span>. На главном экране выбери режим <span class="highlight">«Конфигурация»</span>.</p>
       </div>
 
-      <div class="warning-box">
-        <div class="label">Режим маршрутизации</div>
-        <p>Убедись что на главном экране Shadowrocket выбран режим <strong>«Конфигурация»</strong> (не «Глобальный» и не «Прямой»). Только в режиме «Конфигурация» работают правила.</p>
-      </div>
     </div>
 
   </div>
 
-  <!-- ==================== Common section ==================== -->
+  <!-- ==================== Common ==================== -->
   <div class="divider"></div>
 
   <div class="section">
-    <div class="section-title">Проверка подключения</div>
+    <div class="section-title">Проверка</div>
 
     <div class="step">
       <div class="step-number">✓</div>
       <h3>Как понять что VPN работает?</h3>
-      <p>После подключения открой браузер и зайди на любой из этих сайтов:</p>
+      <p>Открой в браузере:</p>
       <table class="settings">
         <tr>
           <td>YouTube</td>
@@ -625,31 +524,25 @@ body {
         </tr>
         <tr>
           <td>IP-адрес</td>
-          <td><a href="https://whoer.net" target="_blank" style="color:#afe67f;text-decoration:none">whoer.net</a> — IP должен быть не российским</td>
+          <td><a href="https://whoer.net" target="_blank" style="color:#afe67f;text-decoration:none">whoer.net</a> — IP не российский</td>
         </tr>
       </table>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">Частые вопросы</div>
+    <div class="section-title">Проблемы?</div>
 
     <div class="step">
       <div class="step-number">?</div>
       <h3>VPN подключается, но сайты не открываются</h3>
-      <p>Попробуй отключить и подключить заново. Если не помогает — удали сервер и добавь заново по ссылке.</p>
+      <p>Отключи и подключи заново. Если не помогает — удали сервер и добавь заново по ссылке.</p>
     </div>
 
     <div class="step">
       <div class="step-number">?</div>
-      <h3>Российские сайты (банки, Яндекс) работают медленно</h3>
-      <p>В V2RayTun: проверь что включен режим <span class="highlight">«Proxy»</span>, а не «Global». В Shadowrocket: выбери режим <span class="highlight">«Конфигурация»</span>. Тогда российские сайты пойдут напрямую.</p>
-    </div>
-
-    <div class="step">
-      <div class="step-number">?</div>
-      <h3>Не могу установить Shadowrocket</h3>
-      <p>Нужен зарубежный Apple ID. Приложение стоит $2.99 и недоступно в российском App Store. Как вариант — используй <span class="highlight">V2RayTun</span> (бесплатный).</p>
+      <h3>Российские сайты работают медленно</h3>
+      <p>В V2RayTun: выбери режим <span class="highlight">«Proxy»</span>, а не «Global». В Shadowrocket: выбери режим <span class="highlight">«Конфигурация»</span>. Тогда российские сайты пойдут напрямую без VPN.</p>
     </div>
   </div>
 
