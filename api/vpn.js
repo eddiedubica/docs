@@ -469,7 +469,7 @@ body {
         <p>Приложение <span class="highlight">автоматически предложит</span> добавить конфигурацию. Нажми <span class="highlight">«Добавить»</span>.</p>
         <p class="sub">Если не предложило — нажми «+» в правом верхнем углу → тип «VLESS» → вставь ссылку в поле URI</p>
         <!-- VIDEO: sr-import -->
-        <div class="video-block" id="video-sr-import">
+        <div class="video-block">
           <img src="/videos/sr-import.gif" alt="Как добавить ссылку в Shadowrocket">
         </div>
       </div>
@@ -482,10 +482,6 @@ body {
         <div class="step-number">4</div>
         <h3>Включи VPN</h3>
         <p>Нажми переключатель напротив появившегося сервера. При первом запуске разреши VPN.</p>
-        <!-- VIDEO: sr-connect -->
-        <div class="video-block" id="video-sr-connect">
-          <img src="/videos/sr-connect.gif" alt="Как подключиться в Shadowrocket">
-        </div>
       </div>
 
       <div class="info-box">
@@ -524,6 +520,9 @@ body {
         <div class="step-number">3</div>
         <h3>Активируй</h3>
         <p>Нажми на загруженную конфигурацию → <span class="highlight">«Использовать»</span>. На главном экране выбери режим <span class="highlight">«Конфигурация»</span>.</p>
+        <div class="video-block">
+          <img src="/videos/sr-config.gif" alt="Настройка конфига в Shadowrocket">
+        </div>
       </div>
 
     </div>
