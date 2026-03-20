@@ -548,24 +548,8 @@ body {
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-title">Проблемы?</div>
-
-    <div class="step">
-      <div class="step-number">?</div>
-      <h3>VPN подключается, но сайты не открываются</h3>
-      <p>Отключи и подключи заново. Если не помогает — удали сервер и добавь заново по ссылке.</p>
-    </div>
-
-    <div class="step">
-      <div class="step-number">?</div>
-      <h3>Российские сайты работают медленно</h3>
-      <p>В V2RayTun: выбери режим <span class="highlight">«Proxy»</span>, а не «Global». В Shadowrocket: выбери режим <span class="highlight">«Конфигурация»</span>. Тогда российские сайты пойдут напрямую без VPN.</p>
-    </div>
-  </div>
-
   <div class="footer">
-    <p>dubica docs &middot; <a href="/">все инструкции</a></p>
+    <p>dubica docs</p>
   </div>
 
 </div>
