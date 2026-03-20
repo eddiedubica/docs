@@ -153,7 +153,7 @@ body {
   font-weight: 500;
 }
 
-/* Video block */
+/* GIF block */
 .video-block {
   margin-top: 16px;
   border-radius: 12px;
@@ -161,13 +161,12 @@ body {
   border: 1px solid rgba(255,255,255,0.08);
   background: #000;
 }
-.video-block video {
+.video-block img {
   width: 100%;
   display: block;
   max-height: 500px;
   object-fit: contain;
   background: #000;
-  pointer-events: none;
 }
 
 /* Info box */
@@ -373,7 +372,7 @@ body {
         <p class="sub">Если не предложило — нажми «+» в правом верхнем углу → «Импорт из буфера обмена»</p>
         <!-- VIDEO: v2ray-import -->
         <div class="video-block" id="video-v2ray-import">
-          <video src="/videos/v2ray-import.mp4" playsinline muted loop autoplay preload="auto"></video>
+          <img src="/videos/v2ray-import.gif" alt="Как добавить ссылку в V2RayTun">
         </div>
       </div>
     </div>
@@ -387,7 +386,7 @@ body {
         <p>Выбери появившийся сервер в списке и нажми большую кнопку подключения. При первом запуске iOS/Android попросит разрешить VPN — нажми <span class="highlight">«Разрешить»</span>.</p>
         <!-- VIDEO: v2ray-connect -->
         <div class="video-block" id="video-v2ray-connect">
-          <video src="/videos/v2ray-connect.mp4" playsinline muted loop autoplay preload="auto"></video>
+          <img src="/videos/v2ray-connect.gif" alt="Как подключиться в V2RayTun">
         </div>
       </div>
 
@@ -448,7 +447,7 @@ body {
         <p class="sub">Если не предложило — нажми «+» в правом верхнем углу → тип «VLESS» → вставь ссылку в поле URI</p>
         <!-- VIDEO: sr-import -->
         <div class="video-block" id="video-sr-import">
-          <video src="/videos/sr-import.mp4" playsinline muted loop autoplay preload="auto"></video>
+          <img src="/videos/sr-import.gif" alt="Как добавить ссылку в Shadowrocket">
         </div>
       </div>
     </div>
@@ -462,7 +461,7 @@ body {
         <p>Нажми переключатель напротив появившегося сервера. При первом запуске разреши VPN.</p>
         <!-- VIDEO: sr-connect -->
         <div class="video-block" id="video-sr-connect">
-          <video src="/videos/sr-connect.mp4" playsinline muted loop autoplay preload="auto"></video>
+          <img src="/videos/sr-connect.gif" alt="Как подключиться в Shadowrocket">
         </div>
       </div>
 
