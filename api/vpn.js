@@ -314,6 +314,11 @@ body {
     <p>Тебе нужна <strong style="color:#afe67f">VLESS-ссылка</strong> для подключения. Она начинается с <code style="color:#afe67f;font-family:monospace;font-size:13px">vless://...</code> — её тебе пришлют отдельно.</p>
   </div>
 
+  <div class="info-box" style="margin-bottom:40px">
+    <div class="label">Телефон и компьютер</div>
+    <p>Настройка одинаковая на iPhone, Android и Mac — интерфейс приложений идентичный.</p>
+  </div>
+
   <!-- Tabs -->
   <div class="tabs">
     <button class="tab active" onclick="switchTab('v2raytun')">
