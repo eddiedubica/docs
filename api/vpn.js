@@ -513,7 +513,11 @@ body {
       <div class="step">
         <div class="step-number">2</div>
         <h3>Добавь конфигурацию по ссылке</h3>
-        <p>Нажми <span class="highlight">«Добавить конфигурацию из URL»</span> и вставь ссылку на файл правил (её тебе пришлют вместе с VLESS-ссылкой).</p>
+        <p>Нажми <span class="highlight">«Добавить конфигурацию из URL»</span> и вставь эту ссылку:</p>
+        <div style="margin-top:12px;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 16px">
+          <code id="conf-url" style="flex:1;font-size:13px;color:#afe67f;word-break:break-all;font-family:monospace">https://docs.dubica.ru/shadowrocket.conf</code>
+          <button onclick="copyConf()" id="copy-conf-btn" style="background:rgba(175,230,127,0.1);border:1px solid rgba(175,230,127,0.2);border-radius:8px;padding:8px 14px;color:#afe67f;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:inherit">Скопировать</button>
+        </div>
       </div>
 
       <div class="step">
@@ -560,6 +564,14 @@ body {
 </div>
 
 <script>
+function copyConf() {
+  var url = document.getElementById('conf-url').textContent;
+  navigator.clipboard.writeText(url).then(function() {
+    var btn = document.getElementById('copy-conf-btn');
+    btn.textContent = 'Скопировано!';
+    setTimeout(function() { btn.textContent = 'Скопировать'; }, 2000);
+  });
+}
 function switchTab(id) {
   document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));

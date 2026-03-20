@@ -6,6 +6,10 @@
       "dest": "/public/videos/$1"
     },
     {
+      "src": "/shadowrocket.conf",
+      "dest": "/api/shadowrocket-conf"
+    },
+    {
       "src": "/vpn",
       "dest": "/api/vpn"
     },
