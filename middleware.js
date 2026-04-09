@@ -1,18 +1,17 @@
 // SSO авторизация через общую куку dubica_auth на .dubica.ru
-// Кука ставится на dubica.ru/login, проверяется здесь через HMAC-SHA256.
 
 const COOKIE_NAME = 'dubica_auth';
 const TOKEN_VERSION = 'v1';
 const MAX_AGE = 60 * 60 * 24 * 365;
 
-function b64url(buf: ArrayBuffer): string {
+function b64url(buf) {
   const bytes = new Uint8Array(buf);
   let s = '';
   for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
   return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
 
-async function hmac(secret: string, data: string): Promise<string> {
+async function hmac(secret, data) {
   const enc = new TextEncoder();
   const key = await crypto.subtle.importKey(
     'raw',
@@ -25,14 +24,14 @@ async function hmac(secret: string, data: string): Promise<string> {
   return b64url(sig);
 }
 
-function safeEqual(a: string, b: string): boolean {
+function safeEqual(a, b) {
   if (a.length !== b.length) return false;
   let diff = 0;
   for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
   return diff === 0;
 }
 
-async function verifyToken(token: string | undefined, secret: string): Promise<boolean> {
+async function verifyToken(token, secret) {
   if (!token) return false;
   const parts = token.split('.');
   if (parts.length !== 3) return false;
@@ -47,12 +46,12 @@ async function verifyToken(token: string | undefined, secret: string): Promise<b
   return safeEqual(sig, expected);
 }
 
-function getCookie(cookies: string, name: string): string | undefined {
+function getCookie(cookies, name) {
   const match = cookies.match(new RegExp(`(?:^|;\\s*)${name}=([^;]*)`));
   return match ? match[1] : undefined;
 }
 
-export default async function middleware(req: Request): Promise<Response> {
+export default async function middleware(req) {
   const secret = process.env.AUTH_SECRET;
   if (!secret) {
     return new Response('AUTH_SECRET is not configured', { status: 500 });
