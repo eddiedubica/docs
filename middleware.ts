@@ -1,26 +1,9 @@
-import { next } from '@vercel/edge';
-
-export const config = {
-  // Защищаем всё кроме внутренних путей Vercel и логотипов
-  matcher: '/((?!_vercel|assets/dubica-logo).*)',
-};
-
-// === SSO авторизация через общую куку dubica_auth на .dubica.ru ===
+// SSO авторизация через общую куку dubica_auth на .dubica.ru
 // Кука ставится на dubica.ru/login, проверяется здесь через HMAC-SHA256.
-// Если куки нет или она невалидна — редирект на dubica.ru/login?next=<текущий URL>.
 
 const COOKIE_NAME = 'dubica_auth';
 const TOKEN_VERSION = 'v1';
-const MAX_AGE = 60 * 60 * 24 * 365; // 1 год
-
-function b64urlDecode(s: string): Uint8Array {
-  s = s.replace(/-/g, '+').replace(/_/g, '/');
-  while (s.length % 4) s += '=';
-  const bin = atob(s);
-  const out = new Uint8Array(bin.length);
-  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
-  return out;
-}
+const MAX_AGE = 60 * 60 * 24 * 365;
 
 function b64url(buf: ArrayBuffer): string {
   const bytes = new Uint8Array(buf);
@@ -55,14 +38,11 @@ async function verifyToken(token: string | undefined, secret: string): Promise<b
   if (parts.length !== 3) return false;
   const [version, issuedAtStr, sig] = parts;
   if (version !== TOKEN_VERSION) return false;
-
   const issuedAt = Number(issuedAtStr);
   if (!Number.isFinite(issuedAt)) return false;
-
   const now = Math.floor(Date.now() / 1000);
   if (issuedAt > now + 60) return false;
   if (now - issuedAt > MAX_AGE) return false;
-
   const expected = await hmac(secret, `${version}.${issuedAt}`);
   return safeEqual(sig, expected);
 }
@@ -72,7 +52,7 @@ function getCookie(cookies: string, name: string): string | undefined {
   return match ? match[1] : undefined;
 }
 
-export default async function middleware(req: Request): Promise<Response | undefined> {
+export default async function middleware(req: Request): Promise<Response> {
   const secret = process.env.AUTH_SECRET;
   if (!secret) {
     return new Response('AUTH_SECRET is not configured', { status: 500 });
@@ -82,14 +62,11 @@ export default async function middleware(req: Request): Promise<Response | undef
   const token = getCookie(cookies, COOKIE_NAME);
   const ok = await verifyToken(token, secret);
 
-  if (ok) return next();
+  if (ok) {
+    return fetch(req);
+  }
 
-  // Не авторизован — редирект на хаб dubica.ru/login с возвратом сюда
-  const currentUrl = req.url;
   const loginUrl = new URL('https://dubica.ru/login');
-  loginUrl.searchParams.set('next', currentUrl);
-  return new Response(null, {
-    status: 302,
-    headers: { Location: loginUrl.toString() },
-  });
+  loginUrl.searchParams.set('next', req.url);
+  return Response.redirect(loginUrl.toString(), 302);
 }

@@ -1,6 +1,16 @@
 {
   "version": 2,
+  "functions": {
+    "middleware.ts": {
+      "runtime": "@vercel/edge"
+    }
+  },
   "routes": [
+    {
+      "src": "/((?!_vercel|favicon|apple-touch).*)",
+      "middlewarePath": "middleware",
+      "continue": true
+    },
     {
       "src": "/videos/(.*)",
       "dest": "/public/videos/$1"
