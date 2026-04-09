@@ -15,6 +15,10 @@
       "dest": "/public/assets/$1"
     },
     {
+      "src": "/gc-lava",
+      "dest": "/api/gc-lava"
+    },
+    {
       "src": "/shadowrocket.conf",
       "dest": "/api/shadowrocket-conf"
     },

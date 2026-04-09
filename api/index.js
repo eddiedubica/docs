@@ -102,6 +102,7 @@ body{
     </div>
     <div class="topbar-right">
       <a href="https://dubica.ru">workspace</a>
+      <a href="https://dubica.ru/api/logout">logout</a>
     </div>
   </nav>
 
@@ -113,7 +114,7 @@ body{
     </div>
 
     <div class="doc-list">
-      <a href="/api/gc-lava" class="doc-item">
+      <a href="/gc-lava" class="doc-item">
         <div class="doc-meta">
           <span class="doc-name">GetCourse + Lava Top</span>
           <span class="doc-desc">Интеграция через Vakas-tools</span>

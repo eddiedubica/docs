@@ -12,7 +12,7 @@ const HTML = `<!DOCTYPE html>
 body {
   font-family: 'Onest', -apple-system, BlinkMacSystemFont, sans-serif;
   background: #0a0a0a;
-  color: #1e1e1e;
+  color: #f5f5f2;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
