@@ -1,4 +1,4 @@
-const LOGO = "/assets/dubica-logo-white.png";
+const LOGO = "https://dubica.ru/assets/dubica-logo-white.png";
 
 const HTML = `<!DOCTYPE html>
 <html lang="ru">

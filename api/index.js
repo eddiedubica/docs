@@ -97,7 +97,7 @@ body{
 <body>
   <nav class="topbar">
     <div class="topbar-left">
-      <img src="/assets/dubica-logo-white.png" alt="DUBICA" class="logo">
+      <img src="https://dubica.ru/assets/dubica-logo-white.png" alt="DUBICA" class="logo">
       <span class="topbar-tag">docs</span>
     </div>
     <div class="topbar-right">
