@@ -1,4 +1,4 @@
-const LOGO = "https://optim.tildacdn.com/tild6234-6433-4330-a439-643032666335/-/resize/162x/-/format/webp/Frame_2.png.webp";
+const LOGO = "/assets/dubica-logo-white.png";
 
 const HTML = `<!DOCTYPE html>
 <html lang="ru">
@@ -7,11 +7,11 @@ const HTML = `<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Documentation — Lava Top + GetCourse + Vakas-tools</title>
 <style>
-@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Onest:wght@400;500;700&display=swap');
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #070b02;
+  font-family: 'Onest', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0a0a0a;
   color: #1e1e1e;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -20,7 +20,7 @@ body {
 .hero {
   text-align: center;
   padding: 80px 20px 60px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(175,230,127,0.12) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(124,252,0,0.12) 0%, transparent 60%);
 }
 .hero img { height: 48px; margin-bottom: 24px; display: block; margin-left: auto; margin-right: auto; }
 .hero .doc-label {
@@ -29,10 +29,10 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #afe67f;
+  color: #7cfc00;
   margin-bottom: 24px;
   padding: 6px 16px;
-  border: 1px solid rgba(175,230,127,0.2);
+  border: 1px solid rgba(124,252,0,0.2);
   border-radius: 20px;
   opacity: 0.7;
 }
@@ -41,7 +41,7 @@ body {
   font-weight: 700;
   letter-spacing: -1px;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #fff 0%, #afe67f 100%);
+  background: linear-gradient(135deg, #fff 0%, #7cfc00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -52,16 +52,16 @@ body {
 /* Schema */
 .schema {
   background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(175,230,127,0.08);
+  border: 1px solid rgba(124,252,0,0.08);
   border-radius: 20px;
   padding: 32px;
   margin-bottom: 48px;
   overflow-x: auto;
 }
 .schema pre {
-  font-family: 'SF Mono', SFMono-Regular, Consolas, monospace;
+  font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
   font-size: 13px;
-  color: rgba(175,230,127,0.55);
+  color: rgba(124,252,0,0.55);
   line-height: 1.7;
   white-space: pre;
 }
@@ -75,8 +75,8 @@ body {
   width: 32px;
   height: 32px;
   border-radius: 10px;
-  background: rgba(175,230,127,0.1);
-  color: #afe67f;
+  background: rgba(124,252,0,0.1);
+  color: #7cfc00;
   font-size: 14px;
   font-weight: 700;
   margin-bottom: 12px;
@@ -115,7 +115,7 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #afe67f;
+  background: #7cfc00;
   flex-shrink: 0;
 }
 .card-title { font-size: 15px; font-weight: 600; color: #1e1e1e; }
@@ -124,16 +124,16 @@ body {
 /* Code */
 .code-block {
   background: #0d1206;
-  border: 1px solid rgba(175,230,127,0.1);
+  border: 1px solid rgba(124,252,0,0.1);
   border-radius: 14px;
   padding: 18px 22px;
   margin: 14px 0;
   overflow-x: auto;
 }
 .code-block code {
-  font-family: 'SF Mono', SFMono-Regular, Consolas, monospace;
+  font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
   font-size: 13px;
-  color: rgba(175,230,127,0.75);
+  color: rgba(124,252,0,0.75);
   line-height: 1.7;
   white-space: pre;
 }
@@ -147,19 +147,19 @@ body {
   margin-top: 20px;
 }
 code {
-  font-family: 'SF Mono', SFMono-Regular, Consolas, monospace;
+  font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
   font-size: 12px;
-  background: rgba(175,230,127,0.08);
+  background: rgba(124,252,0,0.08);
   padding: 2px 6px;
   border-radius: 5px;
   color: #7da84f;
 }
-.card code { background: rgba(175,230,127,0.1); }
+.card code { background: rgba(124,252,0,0.1); }
 
 /* Callout */
 .callout {
-  background: rgba(175,230,127,0.05);
-  border: 1px solid rgba(175,230,127,0.12);
+  background: rgba(124,252,0,0.05);
+  border: 1px solid rgba(124,252,0,0.12);
   border-radius: 14px;
   padding: 18px 22px;
   margin: 16px 0;
@@ -177,7 +177,7 @@ code {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #afe67f;
+  color: #7cfc00;
   margin-bottom: 6px;
 }
 .callout-warn .callout-title { color: #f59e0b; }
@@ -186,8 +186,8 @@ code {
 
 /* Prompt */
 .prompt-block {
-  background: linear-gradient(135deg, rgba(175,230,127,0.06) 0%, rgba(130,180,90,0.03) 100%);
-  border: 1px solid rgba(175,230,127,0.12);
+  background: linear-gradient(135deg, rgba(124,252,0,0.06) 0%, rgba(130,180,90,0.03) 100%);
+  border: 1px solid rgba(124,252,0,0.12);
   border-radius: 16px;
   padding: 24px;
   margin: 16px 0;
@@ -197,7 +197,7 @@ code {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #afe67f;
+  color: #7cfc00;
   margin-bottom: 10px;
   opacity: 0.6;
 }
@@ -211,11 +211,11 @@ code {
 /* URL example visual */
 .url-visual {
   background: #1a1a2e;
-  border: 1px solid rgba(175,230,127,0.1);
+  border: 1px solid rgba(124,252,0,0.1);
   border-radius: 12px;
   padding: 16px 20px;
   margin: 12px 0;
-  font-family: 'SF Mono', SFMono-Regular, Consolas, monospace;
+  font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
   font-size: 13px;
   color: rgba(255,255,255,0.4);
   overflow-x: auto;
@@ -223,8 +223,8 @@ code {
 }
 .url-visual .url-dim { color: rgba(255,255,255,0.3); }
 .url-visual .url-highlight {
-  color: #afe67f;
-  background: rgba(175,230,127,0.1);
+  color: #7cfc00;
+  background: rgba(124,252,0,0.1);
   padding: 2px 6px;
   border-radius: 4px;
   font-weight: 600;
@@ -232,7 +232,7 @@ code {
 .url-visual .url-arrow {
   display: block;
   margin-top: 8px;
-  color: #afe67f;
+  color: #7cfc00;
   font-size: 12px;
   font-family: 'SF Pro Display', sans-serif;
 }
@@ -261,8 +261,8 @@ code {
   width: 24px;
   height: 24px;
   border-radius: 8px;
-  background: rgba(175,230,127,0.08);
-  color: #afe67f;
+  background: rgba(124,252,0,0.08);
+  color: #7cfc00;
   font-size: 12px;
   font-weight: 700;
   display: flex;
@@ -275,7 +275,7 @@ code {
 /* Browser mockup */
 .browser-mock {
   background: #1a1a2e;
-  border: 1px solid rgba(175,230,127,0.1);
+  border: 1px solid rgba(124,252,0,0.1);
   border-radius: 14px;
   overflow: hidden;
   margin: 16px 0;
@@ -303,11 +303,11 @@ code {
   background: rgba(255,255,255,0.04);
   border-radius: 6px;
   padding: 5px 12px;
-  font-family: 'SF Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: rgba(255,255,255,0.35);
 }
-.browser-url .hl { color: #afe67f; font-weight: 600; }
+.browser-url .hl { color: #7cfc00; font-weight: 600; }
 .browser-body {
   padding: 20px;
 }
@@ -327,8 +327,8 @@ code {
   margin-bottom: 2px;
 }
 .browser-body .mock-nav-item.active {
-  background: rgba(175,230,127,0.08);
-  color: #afe67f;
+  background: rgba(124,252,0,0.08);
+  color: #7cfc00;
 }
 .browser-body .mock-content {
   flex: 1;
@@ -342,7 +342,7 @@ code {
 }
 .browser-body .mock-label { color: rgba(255,255,255,0.25); min-width: 100px; }
 .browser-body .mock-value { color: rgba(255,255,255,0.45); }
-.browser-body .mock-value.hl { color: #afe67f; }
+.browser-body .mock-value.hl { color: #7cfc00; }
 .browser-body .mock-btn {
   display: inline-block;
   padding: 6px 14px;
@@ -351,7 +351,7 @@ code {
   font-weight: 600;
   margin-top: 12px;
 }
-.mock-btn-green { background: rgba(175,230,127,0.12); color: #afe67f; }
+.mock-btn-green { background: rgba(124,252,0,0.12); color: #7cfc00; }
 .mock-btn-blue { background: rgba(59,130,246,0.12); color: #3b82f6; }
 
 /* Table */
@@ -359,23 +359,23 @@ code {
   overflow-x: auto;
   margin: 12px 0;
   border-radius: 14px;
-  border: 1px solid rgba(175,230,127,0.08);
+  border: 1px solid rgba(124,252,0,0.08);
 }
 table { width: 100%; border-collapse: collapse; font-size: 14px; }
 th {
-  background: rgba(175,230,127,0.04);
+  background: rgba(124,252,0,0.04);
   text-align: left;
   padding: 12px 16px;
   font-weight: 600;
-  color: rgba(175,230,127,0.5);
+  color: rgba(124,252,0,0.5);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-bottom: 1px solid rgba(175,230,127,0.08);
+  border-bottom: 1px solid rgba(124,252,0,0.08);
 }
 td {
   padding: 12px 16px;
-  border-bottom: 1px solid rgba(175,230,127,0.04);
+  border-bottom: 1px solid rgba(124,252,0,0.04);
   color: rgba(255,255,255,0.4);
 }
 td:first-child { color: #e8e8dc; font-weight: 500; }
@@ -406,7 +406,7 @@ tr:last-child td { border-bottom: none; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #afe67f;
+  color: #7cfc00;
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
@@ -421,7 +421,7 @@ tr:last-child td { border-bottom: none; }
 .footer {
   text-align: center;
   padding: 40px 20px;
-  border-top: 1px solid rgba(175,230,127,0.06);
+  border-top: 1px solid rgba(124,252,0,0.06);
   color: rgba(255,255,255,0.15);
   font-size: 13px;
 }
@@ -533,7 +533,7 @@ tr:last-child td { border-bottom: none; }
     </div>
     <div class="browser-body" style="text-align:center; padding: 24px;">
       <div style="color:rgba(255,255,255,0.2); font-size:12px; margin-bottom:8px;">↑ Это и есть offerId ↑</div>
-      <div style="font-family:'SF Mono',monospace; font-size:15px; color:#afe67f; font-weight:600; letter-spacing:0.5px;">d26e5914-0153-4394-8572-ce6f855b653e</div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:15px; color:#7cfc00; font-weight:600; letter-spacing:0.5px;">d26e5914-0153-4394-8572-ce6f855b653e</div>
       <div style="color:rgba(255,255,255,0.25); font-size:12px; margin-top:8px;">UUID формат: 8-4-4-4-12 символов (буквы a-f и цифры 0-9)</div>
     </div>
   </div>

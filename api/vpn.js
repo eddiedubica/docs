@@ -1,4 +1,4 @@
-const LOGO = "https://optim.tildacdn.com/tild6234-6433-4330-a439-643032666335/-/resize/162x/-/format/webp/Frame_2.png.webp";
+const LOGO = "/assets/dubica-logo-white.png";
 
 const HTML = `<!DOCTYPE html>
 <html lang="ru">
@@ -7,16 +7,16 @@ const HTML = `<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>VPN — Инструкция по подключению</title>
 <style>
-@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Onest:wght@400;500;700&display=swap');
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #070b02;
+  font-family: 'Onest', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0a0a0a;
   color: #fff;
   min-height: 100vh;
   padding: 24px;
   -webkit-font-smoothing: antialiased;
-  background-image: radial-gradient(ellipse at 50% 10%, rgba(175,230,127,0.06) 0%, transparent 60%);
+  background-image: radial-gradient(ellipse at 50% 10%, rgba(124,252,0,0.06) 0%, transparent 60%);
 }
 
 .container {
@@ -35,7 +35,7 @@ body {
   font-weight: 700;
   letter-spacing: -0.5px;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, #fff 0%, #afe67f 100%);
+  background: linear-gradient(135deg, #fff 0%, #7cfc00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -72,9 +72,9 @@ body {
 }
 .tab:hover { color: rgba(255,255,255,0.7); }
 .tab.active {
-  background: rgba(175,230,127,0.1);
-  color: #afe67f;
-  border: 1px solid rgba(175,230,127,0.15);
+  background: rgba(124,252,0,0.1);
+  color: #7cfc00;
+  border: 1px solid rgba(124,252,0,0.15);
 }
 .tab-icon { font-size: 18px; }
 .tab-content { display: none; }
@@ -86,11 +86,11 @@ body {
   align-items: center;
   gap: 6px;
   padding: 4px 12px;
-  background: rgba(175,230,127,0.08);
-  border: 1px solid rgba(175,230,127,0.12);
+  background: rgba(124,252,0,0.08);
+  border: 1px solid rgba(124,252,0,0.12);
   border-radius: 20px;
   font-size: 12px;
-  color: rgba(175,230,127,0.7);
+  color: rgba(124,252,0,0.7);
   margin-bottom: 24px;
 }
 
@@ -115,7 +115,7 @@ body {
   margin-bottom: 12px;
   transition: border-color 0.2s;
 }
-.step:hover { border-color: rgba(175,230,127,0.15); }
+.step:hover { border-color: rgba(124,252,0,0.15); }
 .step-number {
   position: absolute;
   left: 16px;
@@ -123,14 +123,14 @@ body {
   width: 32px;
   height: 32px;
   border-radius: 10px;
-  background: rgba(175,230,127,0.1);
-  border: 1px solid rgba(175,230,127,0.15);
+  background: rgba(124,252,0,0.1);
+  border: 1px solid rgba(124,252,0,0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   font-weight: 600;
-  color: #afe67f;
+  color: #7cfc00;
 }
 .step h3 {
   font-size: 16px;
@@ -149,7 +149,7 @@ body {
   margin-top: 8px;
 }
 .step .highlight {
-  color: #afe67f;
+  color: #7cfc00;
   font-weight: 500;
 }
 
@@ -172,8 +172,8 @@ body {
 /* Info box */
 .info-box {
   padding: 16px 20px;
-  background: rgba(175,230,127,0.04);
-  border: 1px solid rgba(175,230,127,0.1);
+  background: rgba(124,252,0,0.04);
+  border: 1px solid rgba(124,252,0,0.1);
   border-radius: 12px;
   margin-bottom: 12px;
 }
@@ -185,7 +185,7 @@ body {
 .info-box .label {
   font-size: 12px;
   font-weight: 600;
-  color: #afe67f;
+  color: #7cfc00;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 6px;
@@ -274,10 +274,10 @@ body {
   color: rgba(255,255,255,0.2);
 }
 .footer a {
-  color: rgba(175,230,127,0.5);
+  color: rgba(124,252,0,0.5);
   text-decoration: none;
 }
-.footer a:hover { color: #afe67f; }
+.footer a:hover { color: #7cfc00; }
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -302,9 +302,9 @@ body {
   margin-top: 12px;
   transition: border-color 0.2s;
 }
-.config-toggle:hover { border-color: rgba(175,230,127,0.2); }
+.config-toggle:hover { border-color: rgba(124,252,0,0.2); }
 .config-toggle span { font-size: 14px; color: rgba(255,255,255,0.6); }
-.config-toggle .arrow { color: #afe67f; font-size: 12px; transition: transform 0.2s; }
+.config-toggle .arrow { color: #7cfc00; font-size: 12px; transition: transform 0.2s; }
 .config-toggle.open .arrow { transform: rotate(90deg); }
 .config-body {
   display: none;
@@ -321,7 +321,7 @@ body {
   color: rgba(255,255,255,0.6);
   font-size: 11px;
   line-height: 1.5;
-  font-family: 'SF Mono', Menlo, monospace;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   overflow-x: auto;
   max-height: 300px;
   overflow-y: auto;
@@ -337,16 +337,16 @@ body {
 .config-actions button {
   padding: 8px 16px;
   border-radius: 8px;
-  border: 1px solid rgba(175,230,127,0.2);
-  background: rgba(175,230,127,0.1);
-  color: #afe67f;
+  border: 1px solid rgba(124,252,0,0.2);
+  background: rgba(124,252,0,0.1);
+  color: #7cfc00;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
   font-family: inherit;
   transition: all 0.2s;
 }
-.config-actions button:hover { background: rgba(175,230,127,0.2); }
+.config-actions button:hover { background: rgba(124,252,0,0.2); }
 
 @media (max-width: 600px) {
   .container { padding: 20px 0 60px; }
@@ -370,7 +370,7 @@ body {
   <!-- Prerequisite -->
   <div class="info-box" style="margin-bottom:40px">
     <div class="label">Перед началом</div>
-    <p>Тебе нужна <strong style="color:#afe67f">VLESS-ссылка</strong> для подключения. Она начинается с <code style="color:#afe67f;font-family:monospace;font-size:13px">vless://...</code> — её тебе пришлют отдельно.</p>
+    <p>Тебе нужна <strong style="color:#7cfc00">VLESS-ссылка</strong> для подключения. Она начинается с <code style="color:#7cfc00;font-family:monospace;font-size:13px">vless://...</code> — её тебе пришлют отдельно.</p>
   </div>
 
   <div class="info-box" style="margin-bottom:40px">
@@ -422,7 +422,7 @@ body {
       <div class="step">
         <div class="step-number">2</div>
         <h3>Скопируй VLESS-ссылку</h3>
-        <p>Открой сообщение со ссылкой и <span class="highlight">скопируй её</span> (долгое нажатие → «Скопировать»). Ссылка начинается с <code style="color:#afe67f;font-family:monospace">vless://...</code></p>
+        <p>Открой сообщение со ссылкой и <span class="highlight">скопируй её</span> (долгое нажатие → «Скопировать»). Ссылка начинается с <code style="color:#7cfc00;font-family:monospace">vless://...</code></p>
       </div>
     </div>
 
@@ -515,7 +515,7 @@ body {
       <div class="step">
         <div class="step-number">2</div>
         <h3>Скопируй VLESS-ссылку</h3>
-        <p>Открой сообщение со ссылкой и <span class="highlight">скопируй её</span> (долгое нажатие → «Скопировать»). Ссылка начинается с <code style="color:#afe67f;font-family:monospace">vless://...</code></p>
+        <p>Открой сообщение со ссылкой и <span class="highlight">скопируй её</span> (долгое нажатие → «Скопировать»). Ссылка начинается с <code style="color:#7cfc00;font-family:monospace">vless://...</code></p>
       </div>
     </div>
 
@@ -767,15 +767,15 @@ localhost = 127.0.0.1
       <table class="settings">
         <tr>
           <td>YouTube</td>
-          <td><a href="https://youtube.com" target="_blank" style="color:#afe67f;text-decoration:none">youtube.com</a> — должен открываться</td>
+          <td><a href="https://youtube.com" target="_blank" style="color:#7cfc00;text-decoration:none">youtube.com</a> — должен открываться</td>
         </tr>
         <tr>
           <td>Instagram</td>
-          <td><a href="https://instagram.com" target="_blank" style="color:#afe67f;text-decoration:none">instagram.com</a> — должен открываться</td>
+          <td><a href="https://instagram.com" target="_blank" style="color:#7cfc00;text-decoration:none">instagram.com</a> — должен открываться</td>
         </tr>
         <tr>
           <td>IP-адрес</td>
-          <td><a href="https://whoer.net" target="_blank" style="color:#afe67f;text-decoration:none">whoer.net</a> — IP не российский</td>
+          <td><a href="https://whoer.net" target="_blank" style="color:#7cfc00;text-decoration:none">whoer.net</a> — IP не российский</td>
         </tr>
       </table>
     </div>
